@@ -35,7 +35,7 @@ const RegisterPage: React.FC = () => {
     if (!form.password) e.password = 'Please provide a valid password';
     else if (form.password.length < 8 || form.password.length > 16)
       e.password = 'Password must be 8–16 characters';
-    else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/.test(form.password))
+    else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/.test(form.password))      
       e.password = 'Must have uppercase, lowercase, digit and special character';
     if (!form.confirmPassword) e.confirmPassword = 'Please confirm your password';
     else if (form.password !== form.confirmPassword) e.confirmPassword = 'Passwords do not match';
